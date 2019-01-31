@@ -1,7 +1,9 @@
 # Assignment 0
 
-- [ ]
-- [x]
+- [ ] Mercury
+- [x] Venus
+- [x] Earth (Orbit/Moon)
+- [x] Mars
 
 **What do the different options for World Center Mode mean?**
 
