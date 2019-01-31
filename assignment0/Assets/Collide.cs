@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Collide : MonoBehaviour
 {
-    GameObject Earth;
+    public GameObject Earth;
+    public ParticleSystem part;
+    public List<ParticleCollisionEvent> collisionEvents;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,25 @@ public class Collide : MonoBehaviour
         (Earth.transform.lossyScale.magnitude/2.0f + transform.lossyScale.magnitude/2.0f))
         {
             print("Auch!");
+        }
+    }
+
+    void OnParticleCollision(GameObject other)
+    {
+        int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
+
+        Rigidbody rb = other.GetComponent<Rigidbody>();
+        int i = 0;
+        print(other.name);
+        while (i < numCollisionEvents)
+        {
+            if (rb)
+            {
+                Vector3 pos = collisionEvents[i].intersection;
+                Vector3 force = collisionEvents[i].velocity * 10;
+                rb.AddForce(force);
+            }
+            i++;
         }
     }
 }
