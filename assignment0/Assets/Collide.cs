@@ -14,9 +14,10 @@ public class Collide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Earth.transform.position)
+        if ((Earth.transform.position - transform.position).magnitude <= 
+        (Earth.transform.lossyScale.magnitude + transform.lossyScale.magnitude))
         {
-            
+            print("AV!");
         }
     }
 }
