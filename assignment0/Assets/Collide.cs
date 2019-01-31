@@ -14,10 +14,12 @@ public class Collide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Earth.transform.position - transform.position).magnitude <= 
-        (Earth.transform.lossyScale.magnitude + transform.lossyScale.magnitude))
+        // Intersection of sphere A and B is |A.center-B-center| <= A.radius + B.radius
+        // Lossyscale returns diameter... divide by 2 to get radius
+        if (Mathf.Abs((Earth.transform.position - transform.position).magnitude) <= 
+        (Earth.transform.lossyScale.magnitude/2.0f + transform.lossyScale.magnitude/2.0f))
         {
-            print("AV!");
+            print("Auch!");
         }
     }
 }
