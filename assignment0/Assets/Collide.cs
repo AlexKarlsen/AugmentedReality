@@ -12,6 +12,8 @@ public class Collide : MonoBehaviour
     void Start()
     {
         Earth = GameObject.Find("Earth");
+        part = GetComponent<ParticleSystem>();
+        part.Stop();
     }
 
     // Update is called once per frame
@@ -23,6 +25,9 @@ public class Collide : MonoBehaviour
         (Earth.transform.lossyScale.magnitude/2.0f + transform.lossyScale.magnitude/2.0f))
         {
             print("Auch!");
+            Rigidbody rb = GetComponent<Rigidbody>();
+            //rb.AddExplosionForce(3, rb.position, 3);
+            part.Play();
         }
     }
 
