@@ -16,5 +16,9 @@
 - *The target size parameter is important, since the pose information returned during tracking will be in the same scale. For example, if the target image is 16 units wide, then moving the camera from the left border of the target to the right border of the target changes the returned position by 16 units along the x-axis.*
   - *(x, y) - Target size in scene units measured along the horizontal and vertical axes of the rectangular target.*
 
-- [ ] e)
-- [ ] f)
+- [x] e)
+- [x] f)
+
+**What is the difference between albedo and emission?**
+
+- *Albedo is the reflection. Emission is self-illumination.
