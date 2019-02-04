@@ -21,4 +21,4 @@
 
 **What is the difference between albedo and emission?**
 
-- *Albedo is the reflection. Emission is self-illumination.
+- *Albedo is the reflection. Emission is self-illumination.*
