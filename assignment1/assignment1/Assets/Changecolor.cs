@@ -14,7 +14,7 @@ public class Changecolor : MonoBehaviour
     {
         SpaceShuttle = GameObject.Find("SpaceShuttle");
         LandingLane = GameObject.Find("LandingLane");
-            
+
     }
 
     // Update is called once per frame
@@ -22,11 +22,11 @@ public class Changecolor : MonoBehaviour
     {
         if (LandingLane != null && SpaceShuttle != null)
         {
-            print("Spaceshuttle coords.: " + SpaceShuttle.transform.position.ToString());
-            print("Landing Lane coords.: " + LandingLane.transform.position.ToString());
-            print("Dot Product = " + Vector3.Dot(SpaceShuttle.transform.position, LandingLane.transform.position).ToString());
+            Log();
 
-            if (Vector3.Dot(SpaceShuttle.transform.position, LandingLane.transform.position) > 0.5)
+            // Using 2D Vector as we are only concerned with the ground (x,y) directions
+            // Right now we use a dot threshold of 0.5, maybe we should adjust.
+            if (Vector2.Dot((Vector2)SpaceShuttle.transform.position, (Vector2)LandingLane.transform.position) > 0.5)
             {
                 print("Landing");
                 SpaceShuttle.GetComponent<Renderer>().material.color = Green;
@@ -37,4 +37,11 @@ public class Changecolor : MonoBehaviour
             }
         }
     }
+
+    void Log()
+    {
+        print("Spaceshuttle coords.: " + SpaceShuttle.transform.position.ToString());
+        print("Landing Lane coords.: " + LandingLane.transform.position.ToString());
+        print("Dot Product = " + Vector3.Dot(SpaceShuttle.transform.position, LandingLane.transform.position).ToString());
+    } 
 }
