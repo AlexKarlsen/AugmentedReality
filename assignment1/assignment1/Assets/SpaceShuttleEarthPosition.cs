@@ -17,7 +17,12 @@ public class SpaceShuttleEarthPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var SpaceShuttleLocalPosition = SpaceShuttle.transform.localPosition;
-        print("SpaceShuttle local position: " + SpaceShuttleLocalPosition);
+        if (Earth != null && SpaceShuttle != null)
+        {
+            var EarthLocalPosition = Earth.transform.localToWorldMatrix;
+            var SpaceShuttleLocalPosition = SpaceShuttle.transform.worldToLocalMatrix;
+            print("Earth local position: " + EarthLocalPosition);
+            print("SpaceShuttle local position: " + SpaceShuttleLocalPosition);
+        }
     }
 }
