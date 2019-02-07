@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="falcon_s" size="0.096000 0.111501" />
+    <ImageTarget name="spaceship_s" size="0.096000 0.135579" />
+    <ImageTarget name="spaceship" size="0.210000 0.296579" />
     <ImageTarget name="landing" size="0.210000 0.568643" />
     <ImageTarget name="tie2" size="0.210000 0.305735" />
     <ImageTarget name="tie1" size="0.210000 0.275333" />
-    <ImageTarget name="spaceship" size="0.210000 0.296579" />
     <ImageTarget name="falcon" size="0.210000 0.243908" />
     <ImageTarget name="earth-1" size="0.210000 0.296971" />
   </Tracking>

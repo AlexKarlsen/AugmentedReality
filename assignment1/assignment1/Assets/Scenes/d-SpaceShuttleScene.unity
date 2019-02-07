@@ -140,8 +140,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137983384}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.4}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1122477739}
   m_RootOrder: 0
@@ -235,7 +235,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.43049017, y: 0, z: 0.5}
+      m_Extent: {x: 0.35356987, y: 0, z: 0.5}
   m_Shapes:
     vertices: []
     shapes: []
@@ -311,7 +311,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 3569dcbe00000000000000bf000000000000803f0000000000000000000000003569dcbe000000000000003f000000000000803f00000000000000000000803f3569dc3e00000000000000bf000000000000803f000000000000803f000000003569dc3e000000000000003f000000000000803f000000000000803f0000803f
+    _typelessdata: 1c07b5be00000000000000bf00000000ffff7f3f0000000000000000000000001c07b5be000000000000003f00000000ffff7f3f00000000000000000000803f1c07b53e00000000000000bf00000000ffff7f3f000000000000803f000000001c07b53e000000000000003f00000000ffff7f3f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -508,7 +508,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'falconMaterial
+  m_Name: 'earth-1Material
 
     3618'
   m_Shader: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
@@ -523,7 +523,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 7123e821a90f41ccbc800d055ce9cdc9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 63a32691ea734f4cb1e7118220a29c7e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -632,14 +632,14 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: falcon
+  mTrackableName: earth-1
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/Assignment1.xml
-  mAspectRatio: 1.1614667
+  mAspectRatio: 1.4141476
   mImageTargetType: 0
   mWidth: 0.21
-  mHeight: 0.243908
+  mHeight: 0.296971
 --- !u!4 &498860175
 Transform:
   m_ObjectHideFlags: 0
@@ -648,8 +648,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498860169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.243908, y: 0.243908, z: 0.243908}
+  m_LocalPosition: {x: 0.4, y: 0, z: 0}
+  m_LocalScale: {x: 0.296971, y: 0.296971, z: 0.296971}
   m_Children:
   - {fileID: 1153711543}
   m_Father: {fileID: 0}
@@ -673,7 +673,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.3540372, y: 0, z: 0.5}
+      m_Extent: {x: 0.35403714, y: 0, z: 0.5}
   m_Shapes:
     vertices: []
     shapes: []
@@ -749,7 +749,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 5d44b5be00000000000000bf000000000000803f0000000000000000000000005d44b5be000000000000003f000000000000803f00000000000000000000803f5d44b53e00000000000000bf000000000000803f000000000000803f000000005d44b53e000000000000003f000000000000803f000000000000803f0000803f
+    _typelessdata: 5b44b5be00000000000000bf000000000000803f0000000000000000000000005b44b5be000000000000003f000000000000803f00000000000000000000803f5b44b53e00000000000000bf000000000000803f000000000000803f000000005b44b53e000000000000003f000000000000803f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -918,14 +918,14 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: spaceship
+  mTrackableName: spaceship_s
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/Assignment1.xml
-  mAspectRatio: 1.412281
+  mAspectRatio: 1.4122813
   mImageTargetType: 0
-  mWidth: 0.21
-  mHeight: 0.296579
+  mWidth: 0.096
+  mHeight: 0.135579
 --- !u!4 &1122477739
 Transform:
   m_ObjectHideFlags: 0
@@ -935,7 +935,7 @@ Transform:
   m_GameObject: {fileID: 1122477733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.296579, y: 0.296579, z: 0.296579}
+  m_LocalScale: {x: 0.135579, y: 0.135579, z: 0.135579}
   m_Children:
   - {fileID: 137983385}
   m_Father: {fileID: 0}
@@ -958,7 +958,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &1153711543
 Transform:
@@ -1039,7 +1039,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'spaceshipMaterial
+  m_Name: 'spaceship_sMaterial
 
     3636'
   m_Shader: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
@@ -1054,7 +1054,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d6c312ef97c8438784257f5c0388be81, type: 3}
+        m_Texture: {fileID: 2800000, guid: 972a3f0045824e78b8a5662c03a57942, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []

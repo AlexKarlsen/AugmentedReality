@@ -19,10 +19,113 @@ public class SpaceShuttleEarthPosition : MonoBehaviour
     {
         if (Earth != null && SpaceShuttle != null)
         {
-            var EarthLocalPosition = Earth.transform.localToWorldMatrix;
-            var SpaceShuttleLocalPosition = SpaceShuttle.transform.worldToLocalMatrix;
-            print("Earth local position: " + EarthLocalPosition);
-            print("SpaceShuttle local position: " + SpaceShuttleLocalPosition);
+            FindRelativePosition(Earth, SpaceShuttle);
+            //var EarthLocalPosition = Earth.transform.InverseTransformPoint(SpaceShuttle.transform.position);
+            //var EarthMatrix = T(EarthLocalPosition.x, EarthLocalPosition.y, EarthLocalPosition.z);  
+            //var SpaceShuttleLocalPosition = ;
+            //print("Earth local position: " + EarthLocalPosition);
+            //print("SpaceShuttle local position: " + SpaceShuttleLocalPosition);
         }
+    }
+
+    Vector3 FindRelativePosition(GameObject origin, GameObject gb)
+    {
+        var M = origin.transform.localToWorldMatrix;
+        var W = gb.transform.localToWorldMatrix;
+        var L = M.inverse * W;
+        return (Vector3)L.GetColumn(3);
+    }
+
+    /**************************************************************************/
+    /************ CONVENIENCE FUNCTIONS FOR AFFINE TRANSFORMATIONS ************/
+    /**************************************************************************/
+
+    /// <summary>
+    /// Translation matrix. Moves object in specified x, y and z.
+    /// </summary>
+    /// <returns>The translated matrix</returns>
+    /// <param name="x">The x coordinate.</param>
+    /// <param name="y">The y coordinate.</param>
+    /// <param name="z">The z coordinate.</param>
+    public static Matrix4x4 T(float x, float y, float z)
+    {
+        Matrix4x4 m = new Matrix4x4();
+
+        m.SetRow(0, new Vector4(1, 0, 0, x));
+        m.SetRow(1, new Vector4(0, 1, 0, y));
+        m.SetRow(2, new Vector4(0, 0, 1, z));
+        m.SetRow(3, new Vector4(0, 0, 0, 1));
+
+        return m;
+    }
+
+    /// <summary>
+    /// X-axis rotation matrix. Rotates a degrees
+    /// </summary>
+    /// <returns>The rotated matrix around x-axis.</returns>
+    /// <param name="a">a degrees (radians).</param>
+    public static Matrix4x4 Rx(float a)
+    {
+        Matrix4x4 m = new Matrix4x4();
+
+        m.SetRow(0, new Vector4(1, 0, 0, 0));
+        m.SetRow(1, new Vector4(0, Mathf.Cos(a), -Mathf.Sin(a), 0));
+        m.SetRow(2, new Vector4(0, Mathf.Sin(a), Mathf.Cos(a), 0));
+        m.SetRow(3, new Vector4(0, 0, 0, 1));
+
+        return m;
+    }
+
+    /// <summary>
+    /// Y-axis rotation matrix. Rotates a degrees
+    /// </summary>
+    /// <returns>The rotated matrix around y-axis.</returns>
+    /// <param name="a">a degrees (radians).</param>  
+    public static Matrix4x4 Ry(float a)
+    {
+        Matrix4x4 m = new Matrix4x4();
+
+        m.SetRow(0, new Vector4(Mathf.Cos(a), 0, Mathf.Sin(a), 0));
+        m.SetRow(1, new Vector4(0, 1, 0, 0));
+        m.SetRow(2, new Vector4(-Mathf.Sin(a), 0, Mathf.Cos(a), 0));
+        m.SetRow(3, new Vector4(0, 0, 0, 1));
+
+        return m;
+    }
+
+    /// <summary>
+    /// Z-axis rotation matrix. Rotates a degrees
+    /// </summary>
+    /// <returns>The rotated matrix around z-axis</returns>
+    /// <param name="a">a degrees (radians).</param>
+    public static Matrix4x4 Rz(float a)
+    {
+        Matrix4x4 m = new Matrix4x4();
+
+        m.SetRow(0, new Vector4(Mathf.Cos(a), -Mathf.Sin(a), 0, 0));
+        m.SetRow(1, new Vector4(Mathf.Sin(a), Mathf.Cos(a), 0, 0));
+        m.SetRow(2, new Vector4(0, 0, 1, 0));
+        m.SetRow(3, new Vector4(0, 0, 0, 1));
+
+        return m;
+    }
+
+    /// <summary>
+    /// S scales the matrix by sx, sy and sz.
+    /// </summary>
+    /// <returns>The scaled matrix transformation</returns>
+    /// <param name="sx">Scales x component.</param>
+    /// <param name="sy">Scales y component.</param>
+    /// <param name="sz">Scales z component.</param>
+    public static Matrix4x4 S(float sx, float sy, float sz)
+    {
+        Matrix4x4 m = new Matrix4x4();
+
+        m.SetRow(0, new Vector4(sx, 0, 0, 0));
+        m.SetRow(1, new Vector4(0, sy, 0, 0));
+        m.SetRow(2, new Vector4(0, 0, sz, 0));
+        m.SetRow(3, new Vector4(0, 0, 0, 1));
+
+        return m;
     }
 }
