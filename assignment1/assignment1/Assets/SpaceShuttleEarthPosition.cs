@@ -6,6 +6,7 @@ public class SpaceShuttleEarthPosition : MonoBehaviour
 {
     GameObject Earth;
     GameObject SpaceShuttle;
+    Vector3 LocalPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,18 @@ public class SpaceShuttleEarthPosition : MonoBehaviour
     {
         if (Earth != null && SpaceShuttle != null)
         {
-            FindRelativePosition(Earth, SpaceShuttle);
+
+            LocalPosition = FindRelativePosition(Earth, SpaceShuttle);
+
+            var h = ChangeOfBase(Earth, SpaceShuttle);
+            print("Base: " + h.ToString());
+
+            if (LocalPosition != null)
+            {
+                print(LocalPosition);
+                OnGUI();
+            }
+
             //var EarthLocalPosition = Earth.transform.InverseTransformPoint(SpaceShuttle.transform.position);
             //var EarthMatrix = T(EarthLocalPosition.x, EarthLocalPosition.y, EarthLocalPosition.z);  
             //var SpaceShuttleLocalPosition = ;
@@ -28,12 +40,24 @@ public class SpaceShuttleEarthPosition : MonoBehaviour
         }
     }
 
+    Vector3 ChangeOfBase(GameObject M, GameObject K)
+    {
+        var m = M.transform.localToWorldMatrix;
+        var k = K.transform.worldToLocalMatrix;
+        return (k.inverse * m).GetColumn(3);
+    }
+
     Vector3 FindRelativePosition(GameObject origin, GameObject gb)
     {
         var M = origin.transform.localToWorldMatrix;
         var W = gb.transform.localToWorldMatrix;
-        var L = M.inverse * W;
-        return (Vector3)L.GetColumn(3);
+        return (M.inverse * W).GetColumn(3);
+    }
+
+    private void OnGUI()
+    {
+        GUI.color = Color.red;
+        GUI.Label(new Rect(10, 10, 500, 100), LocalPosition.ToString());
     }
 
     /**************************************************************************/
